@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/adminResponsive.css">
+    <title>GeeksForGeeks</title>
+</head>
+
+<body>
+    <header>
+        <div class="logosec">
+            <div class="logo">CarX</div>
+            <img src="img/menu_5259008.png" class="icn menuicn" id="menuicn" alt="menu-icon">
+        </div>
+
+        <div class="searchbar">
+            <input type="text" placeholder="Search">
+            <div class="searchbtn">
+                <img src="img/search_149852.png" width="25px">
+            </div>
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <a href="admin" class="adminNavbar">
+                        <div class="nav-option option1">
+                            <img src="img/menu_3388694.png" class="nav-img" alt="dashboard">
+                            <h3> Dashboard</h3>
+                        </div>
+                    </a>
+
+                    <a href="user" class="adminNavbar">
+                        <div class="nav-option option5">
+                            <img src="img/user_1077114.png" class="nav-img" alt="blog">
+                            <h3> Profile</h3>
+                        </div>
+                    </a>
+
+                    <a href="/" class="adminNavbar">
+                        <div class="nav-option logout">
+                            <img src="img/log-out_3596149.png" class="nav-img" alt="logout">
+                            <h3>Logout</h3>
+                        </div>
+                    </a>
+
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+
+            <div class="searchbar2">
+                <input type="text" name="" id="" placeholder="Search">
+                <div class="searchbtn">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" alt="search-button">
+                </div>
+            </div>
+
+            <div class="report-container">
+                <div class="report-header">
+                    <h1 class="recent-Articles">Form</h1>
+                </div>
+                <form action="/admin" method="post" enctype="multipart/form-data" class="mainform" id="AdminInputForm">
+                    <label for="image">Image:</label>
+                    <input class="inputForm inputimg" type="file" name="image" required><br><br>
+
+                    <label for="name">Name:</label>
+                    <input class="inputForm" type="text" id="name" name="name" required><br><br>
+
+                    <label for="model">Model:</label>
+                    <input class="inputForm" type="text" id="model" name="model" required><br><br>
+
+                    <label for="numberplate">Number Plate:</label>
+                    <input class="inputForm" type="text" id="numberplate" name="numberplate" required><br><br>
+
+                    <label for="maxspeed">Max Speed in Km/h:</label>
+                    <input class="inputForm" type="number" id="maxspeed" name="maxspeed" required><br><br>
+
+                    <label for="color">Color:</label>
+                    <input class="inputForm" type="text" id="color" name="color" required><br><br>
+
+                    <label for="date">Post Date:</label>
+                    <input class="inputForm" type="date" id="currentDateInput" name="date"><br><br>
+
+                    <label>Engine Type</label> <br>
+                    <input type="radio" id="electric" name="engine" value="Electric">
+                    <label for="electric">Electric</label> <br>
+                    <input type="radio" id="petrol" name="engine" value="Petrol" checked>
+                    <label for="petrol">Petrol</label> <br>
+                    <input type="radio" id="diesel" name="engine" value="Diesel">
+                    <label for="diesel">Diesel</label><br><br>
+                    <hr style="width: 100%;">
+                    <button id="submitButton" type="submit" name="submit" value="public">Post</button>
+                </form>
+
+                <div class="report-header">
+                    <h1 class="recent-Articles">Posts</h1>
+                    <button class="view">View All</button>
+                </div>
+
+                <div class="loading-container" id="loadingContainer">
+                    <div class="loading-spinner"></div>
+                </div>
+                <div class="MainImageContainer" id="contentContainer">
+                    <% users.forEach(user=> { %>
+                        <div class="ImageContainer">
+                            <% if (user.image && user.imageType) { %>
+                                <div class="image-box">
+                                    <a href="/edit/<%= user._id %>">
+                                        <img class="image"
+                                            src="data:<%= user.imageType %>;base64,<%= user.image.toString('base64') %>"
+                                            alt="User Image" onclick="redirectToDetails('<%= user._id %>')">
+                                    </a>
+                                </div>
+                                <% } else { %>
+                                    <p>Car</p>
+                                    <% } %>
+                                        <div class="info">
+                                            <p><strong>Image Type:</strong>
+                                                <%= user.imageType %>
+                                            </p>
+                                            <p><strong>Name:</strong>
+                                                <%= user.name %>
+                                            </p>
+                                            <p><strong>Model:</strong>
+                                                <%= user.Model %>
+                                            </p>
+                                            <p><strong>Number Plate:</strong>
+                                                <%= user.NumberPlate %>
+                                            </p>
+                                            <p><strong>Max Speed in Km/h:</strong>
+                                                <%= user.MaxSpeed %>
+                                            </p>
+                                            <p><strong>Color:</strong>
+                                                <%= user.Color %>
+                                            </p>
+                                            <p><strong>Post Date:</strong>
+                                                <%= user.Date %>
+                                            </p>
+                                            <p><strong>Engine Type:</strong>
+                                                <%= user.EngineType %>
+                                            </p>
+                                        </div>
+
+                                        <div class="button-container">
+                                            <!-- <a href="edit"> <button class="button">Edit</button></a> -->
+                                            <button class="button"
+                                                style="background-color: rgb(204, 5, 5);">Delete</button>
+                                            <a href="/edit/<%= user._id %>">
+                                                <button class="button">Edit</button>
+                                            </a>
+                                        </div>
+                        </div>
+                        <% }); %>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/script/script.js"></script>
+</body>
+
+</html>

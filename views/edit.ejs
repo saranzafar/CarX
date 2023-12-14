@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/adminResponsive.css">
+    <title>Edit Data</title>
+</head>
+
+<body>
+    <div class="report-header" style="display: block; ">
+        <h1 class="recent-Articles" style=" text-align: center;">Edit Your Post</h1>
+    </div>
+
+    <form action="/update" method="post" enctype="multipart/form-data" class="mainform" id="UpdateData">
+        <!-- Add a hidden input field for the entry ID or any other identifier -->
+        <input type="hidden" name="entryId" value="<%= entryDetails._id %>">
+
+        <div style="overflow: hidden; width: 100%; text-align: center;">
+            <img class="inputForm editimg" style="border: none;width: 50%;"
+                src="data:<%= entryDetails.imageType %>;base64,<%= entryDetails.image.toString('base64') %>"
+                alt="User Image" id="carImage">
+        </div>
+        <input class="inputForm inputImginEdit" type="file" name="image" id="imageInput"><br><br>
+
+        <label for="name">Name:</label>
+        <input class="inputForm" value="<%= entryDetails.name %>" type="text" id="name" name="name" required><br><br>
+
+        <label for="model">Model: </label>
+        <input class="inputForm" value="<%= entryDetails.Model %>" type="text" id="model" name="model" required><br><br>
+
+        <label for="numberplate">Number Plate:</label>
+        <input class="inputForm" value="<%= entryDetails.NumberPlate %>" type="text" id="numberplate" name="numberplate"
+            required><br><br>
+
+        <label for="maxspeed">Max Speed in Km/h:</label>
+        <input class="inputForm" value="<%= entryDetails.MaxSpeed %>" type="number" id="maxspeed" name="maxspeed"
+            required><br><br>
+
+        <label for="color">Color:</label>
+        <input class="inputForm" value="<%= entryDetails.Color %>" type="text" id="color" name="color" required><br><br>
+
+        <label for="date">Post Date:</label>
+        <input class="inputForm" value="<%= entryDetails.Date %>" type="date" type="date" id="currentDateInput"
+            name="date"><br><br>
+
+        <label for="EngineType">Select Engine Type:</label>
+        <select class="inputForm" name="EngineType" id="EngineType">
+            <option value="Electric" <%=entryDetails.EngineType==='Electric' ? 'selected' : '' %>>Electric Engine
+            </option>
+            <option value="Petrol" <%=entryDetails.EngineType==='Petrol' ? 'selected' : '' %>>Petrol Engine</option>
+            <option value="Diesel" <%=entryDetails.EngineType==='Diesel' ? 'selected' : '' %>>Diesel Engine</option>
+        </select>
+
+
+
+        <button onclick="goBack()" type="button">Cancel</button>
+        <button id="update" type="submit" name="update">Update</button>
+    </form>
+
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        $(document).ready(function () {
+            // Listen for changes in the file input
+            $('#imageInput').on('change', function () {
+                // Get the selected file
+                var file = this.files[0];
+                if (file) {
+                    // Read the selected file as a Data URL
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        // Update the image source with the new Data URL
+                        $('#carImage').attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+
+        // document.getElementById('UpdateData').addEventListener('submit', async (event) => {
+        //     event.preventDefault();
+
+        //     const formData = new FormData(event.target);
+
+        //     try {
+        //         const response = await fetch('/update', {
+        //             method: 'POST',
+        //             body: formData,
+        //         });
+
+        //         if (response.ok) {
+        //             const result = await response.json();
+        //             // Display success popup
+        //             alert(result.message);
+        //         } else {
+        //             const error = await response.json();
+        //             // Display error popup
+        //             alert(error.error);
+        //         }
+        //     } catch (error) {
+        //         console.error('Error:', error);
+        //         // Display generic error popup
+        //         alert('An error occurred');
+        //     }
+        // });
+    </script>
+
+</body>
+
+</html>

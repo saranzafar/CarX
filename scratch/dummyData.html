@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        /* Add some basic styling for the loading spinner or placeholder */
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hide the content initially */
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loading Container -->
+    <div class="loading-container" id="loadingContainer">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="content" id="contentContainer">
+        <!-- Your actual content goes here -->
+        <!-- For example, display the data you fetch from MongoDB -->
+        <!-- Replace this with your actual data rendering logic -->
+        <p>Data from MongoDB: Loading...</p>
+    </div>
+
+    <script>
+        // Simulate fetching data from MongoDB
+        setTimeout(function () {
+            // Replace this with your actual data fetching logic using Node.js and MongoDB
+            // Once data is fetched, hide the loading container and show the content container
+            document.getElementById('loadingContainer').style.display = 'none';
+            document.getElementById('contentContainer').style.display = 'block';
+        }, 2000); // Simulating a delay of 2000 milliseconds (2 seconds)
+    </script>
+
+</body>
+
+</html>

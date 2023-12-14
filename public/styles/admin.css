@@ -1,0 +1,548 @@
+/* Main CSS Here */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --background-color1: #f1f1f1;
+    /*navbar*/
+    --background-color2: #bbbbbb;
+    /*dashboard*/
+    --background-color3: #cccccc;
+    /*search bar*/
+    --background-color4: #f1f1f1;
+    /*main */
+    --secondary-color: purple;
+    /*search bar right side*/
+    --Border-color: purple;
+    /*dashboard hovering*/
+
+}
+
+body {
+    background-color: var(--background-color4);
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    height: 70px;
+    width: 100vw;
+    padding: 0 30px;
+    background-color: var(--background-color1);
+    position: fixed;
+    z-index: 100;
+    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 600;
+    color: purple;
+}
+
+.icn {
+    height: 30px;
+}
+
+.menuicn {
+    cursor: pointer;
+}
+
+.searchbar,
+.message,
+.logosec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar2 {
+    display: none;
+}
+
+.logosec {
+    gap: 60px;
+}
+
+.searchbar input {
+    width: 250px;
+    height: 42px;
+    border-radius: 50px 0 0 50px;
+    background-color: var(--background-color3) !important;
+    padding: 0 20px;
+    font-size: 15px;
+    outline: none;
+    border: none;
+}
+
+.searchbtn {
+    width: 50px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 50px 50px 0px;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    margin: 5px 0px;
+}
+
+.adminNavbar {
+    color: black;
+    text-decoration: none;
+    transition: .1s;
+}
+
+.adminNavbar:hover {
+    font-size: 17px;
+}
+
+/* -------------------- Form ----------------------   */
+
+form {
+    min-height: 300px;
+    max-width: 1200px;
+    margin: 70px auto 0px auto;
+    padding: 20px 20px 20px 20px;
+    background-color: #bbbbbb;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: left;
+}
+
+.inputForm {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    outline: none;
+}
+
+.inputForm:hover {
+    border: 2px solid gray;
+    outline: none;
+}
+
+.inputForm:focus {
+    border: 2px solid purple;
+}
+
+label {
+    color: purple;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: inline;
+}
+
+.inputimg {
+    padding: 9px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.inputimg:required {
+    border-color: #f3f3f3;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #5b3885;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6c4f9f;
+}
+
+.inputForm option {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    background-color: #f3f3f3;
+    color: purple;
+    outline: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #bbbbbb;
+}
+
+td img {
+    max-width: 100px;
+    height: auto;
+}
+
+button.edit-button,
+button.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+button.edit-button:hover,
+button.delete-button:hover {
+    background-color: #45a049;
+}
+
+button.edit-button {
+    background-color: purple;
+}
+
+button.edit-button:hover {
+    background-color: #5a035a;
+}
+
+/* -------------- Form --------------   */
+.main-container {
+    display: flex;
+    width: 100vw;
+    position: relative;
+    top: 70px;
+    z-index: 1;
+}
+
+.main {
+    height: calc(100vh - 70px);
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 40px 30px 30px 30px;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background-image:
+        linear-gradient(to bottom, rgb(0, 0, 85), rgb(0, 0, 50));
+}
+
+.main::-webkit-scrollbar {
+    width: 5px;
+}
+
+.main::-webkit-scrollbar-track {
+    background-color: #9e9e9eb2;
+}
+
+
+.nav {
+    min-height: 91vh;
+    width: 250px;
+    background-color: var(--background-color2);
+    position: absolute;
+    top: 0px;
+    left: 00;
+    box-shadow: 1px 1px 10px rgba(198, 189, 248, 0.825);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 30px 0 20px 10px;
+}
+
+.navcontainer {
+    height: calc(100vh - 70px);
+    width: 250px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.navcontainer::-webkit-scrollbar {
+    display: none;
+}
+
+.navclose {
+    width: 80px;
+}
+
+.nav-option {
+    width: 250px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px 0 20px;
+    gap: 20px;
+    transition: all 0.1s ease-in-out;
+}
+
+.nav-option:hover {
+    border-left: 5px solid purple;
+    cursor: pointer;
+}
+
+.nav-img {
+    height: 30px;
+}
+
+.nav-upper-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.option1 {
+    border-left: 5px solid purple;
+    background-color: var(--Border-color);
+    color: white;
+    cursor: pointer;
+    border-radius: 16px 0px 0px 16px;
+}
+
+.option1:hover {
+    border-left: 5px solid rgb(85, 9, 85);
+    background-color: var(--Border-color);
+}
+
+.report-container {
+    min-height: 300px;
+    max-width: 1200px;
+    margin: 70px auto 0px auto;
+    background-color: #bbbbbb;
+    border-radius: 30px;
+    box-shadow: 3px 3px 10px rgb(188, 188, 188);
+    padding: 0px 20px 20px 20px;
+}
+
+.report-header {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px 10px 20px;
+    border-bottom: 2px solid purple;
+}
+
+.recent-Articles {
+    font-size: 30px;
+    font-weight: 600;
+    color: purple;
+}
+
+.view {
+    height: 35px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: purple;
+    color: white;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.report-body {
+    max-width: 1160px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+/* ----------------- gpt ----------  */
+
+.logo {
+    font-size: 27px;
+    font-weight: 600;
+    color: purple;
+}
+
+.icn {
+    height: 30px;
+}
+
+.menuicn {
+    cursor: pointer;
+}
+
+.searchbar,
+.message,
+.logosec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar2 {
+    display: none;
+}
+
+.logosec {
+    gap: 60px;
+}
+
+.searchbar input {
+    width: 250px;
+    height: 42px;
+    border-radius: 50px 0 0 50px;
+    background-color: var(--background-color3);
+    padding: 0 20px;
+    font-size: 15px;
+    outline: none;
+    border: none;
+}
+
+.searchbtn {
+    width: 50px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 50px 50px 0px;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    margin: 5px 0px;
+}
+
+/* -------------------------------- image View Start -------------------------------- */
+.MainImageContainer {
+    display: none;
+    display: flex;
+    width: 100%;
+    margin: 15px 3px;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ImageContainer {
+    background-color: #bbbbbb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(10px 10px 9px rgba(0, 0, 0, 0.1));
+    max-width: 350px;
+    width: 100%;
+    border: 1px solid purple;
+    margin: 5px;
+
+}
+
+.image-box {
+    width: 100%;
+    border-radius: 5px;
+    max-height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.image:hover {
+    transform: scale(1.1);
+}
+
+.info {
+    margin-top: 20px;
+}
+
+.info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px;
+    background-color: purple;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: rgb(165, 33, 165);
+}
+
+/* -------------------------------- image View End -------------------------------- */
+/* -------------------------------- Skeleton loader -------------------------------- */
+/* Add some basic styling for the loading spinner or placeholder */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* -------------------------------- Skeleton loader -------------------------------- */
