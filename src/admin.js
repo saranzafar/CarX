@@ -30,6 +30,10 @@ const AdminSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    Price: {
+        type: Number,
+        required: true
+    },
     EngineType: {
         type: String,
         required: true

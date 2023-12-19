@@ -4,9 +4,8 @@ const collection = require("./config");
 const AdminForm = require("./admin");
 const session = require('express-session');
 const multer = require('multer');
-let authentication = "no";
 const { ObjectId } = require('mongodb');
-const notifier = require('node-notifier');
+let authentication = "no";
 
 const app = express();
 app.use(express.json());
@@ -18,15 +17,6 @@ app.use(express.static("views"));
 app.use(express.urlencoded({ extended: true }));
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
-
-// notifier.notify({
-//     title: 'Salutations!',
-//     message: 'Hey there!',
-//     icon: path.join(__dirname, 'icon.jpg'),
-//     sound: true,
-//     wait: true
-// })
-
 
 // Add express-session middleware
 app.use(session({
@@ -51,13 +41,14 @@ function adminApproval(req, res, next) {
 }
 
 app.get('/', (req, res) => {
+    res.render('index');
+});
+app.get('/login', (req, res) => {
     res.render('login');
 });
-
 app.get('/signup', (req, res) => {
     res.render('signup');
 });
-
 app.get('/admin', async (req, res, next) => {
     try {
         // Fetch data using mongoose query with await
@@ -138,33 +129,6 @@ app.post("/login", async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
-// AdminForm
-// app.post("/admin", upload.single('image'), async (req, res) => {
-//     // const { text } = req.body;
-//     const { buffer, mimetype } = req.file;
-//     const adminData = {
-//         image: buffer,
-//         imageType: mimetype,
-//         name: req.body.name,
-//         Model: req.body.model,
-//         NumberPlate: req.body.numberplate,
-//         MaxSpeed: req.body.maxspeed,
-//         Color: req.body.color,
-//         Date: req.body.date, // Make sure this matches the name attribute in your HTML form
-//         EngineType: req.body.engine,
-//     };
-//     try {
-//         // Create an instance of the AdminForm model
-//         const newAdmin = new AdminForm(adminData);
-//         // Save the data to the database
-//         await newAdmin.save();
-//         console.log('Data saved successfully');
-//         res.send('Data saved successfully');
-//     } catch (error) {
-//         console.error('Error saving data to MongoDB:', error);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
 app.post("/admin", upload.single('image'), async (req, res) => {
     const { buffer, mimetype } = req.file;
     const adminData = {
@@ -176,6 +140,7 @@ app.post("/admin", upload.single('image'), async (req, res) => {
         MaxSpeed: req.body.maxspeed,
         Color: req.body.color,
         Date: req.body.date,
+        Price: req.body.price,
         EngineType: req.body.engine,
     };
     try {

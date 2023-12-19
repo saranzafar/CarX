@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="/styles/admin.css">
     <link rel="stylesheet" href="/styles/adminResponsive.css">
-    <title>GeeksForGeeks</title>
+    <title>CarX-admin</title>
 </head>
 
 <body>
@@ -37,14 +37,14 @@
                         </div>
                     </a>
 
-                    <a href="user" class="adminNavbar">
+                    <a href="/" class="adminNavbar">
                         <div class="nav-option option5">
                             <img src="img/user_1077114.png" class="nav-img" alt="blog">
                             <h3> Profile</h3>
                         </div>
                     </a>
 
-                    <a href="/" class="adminNavbar">
+                    <a href="/login" class="adminNavbar">
                         <div class="nav-option logout">
                             <img src="img/log-out_3596149.png" class="nav-img" alt="logout">
                             <h3>Logout</h3>
@@ -70,26 +70,35 @@
                 </div>
                 <form action="/admin" method="post" enctype="multipart/form-data" class="mainform" id="AdminInputForm">
                     <label for="image">Image:</label>
-                    <input class="inputForm inputimg" type="file" name="image" required><br><br>
+                    <input class="animated animatedFadeInUp fadeInUp inputForm inputimg" type="file" name="image"
+                        required><br><br>
 
                     <label for="name">Name:</label>
-                    <input class="inputForm" type="text" id="name" name="name" required><br><br>
+                    <input class="inputForm animated animatedFadeInUp fadeInUp" type="text" id="name" name="name" required><br><br>
 
                     <label for="model">Model:</label>
-                    <input class="inputForm" type="text" id="model" name="model" required><br><br>
+                    <input class="animated animatedFadeInUp fadeInUp inputForm" type="text" id="model" name="model"
+                        required><br><br>
 
                     <label for="numberplate">Number Plate:</label>
-                    <input class="inputForm" type="text" id="numberplate" name="numberplate" required><br><br>
+                    <input class="animated animatedFadeInUp fadeInUp inputForm" type="text" id="numberplate"
+                        name="numberplate" required><br><br>
 
                     <label for="maxspeed">Max Speed in Km/h:</label>
-                    <input class="inputForm" type="number" id="maxspeed" name="maxspeed" required><br><br>
+                    <input class="animated animatedFadeInUp fadeInUp inputForm" type="number" id="maxspeed"
+                        name="maxspeed" required><br><br>
 
                     <label for="color">Color:</label>
-                    <input class="inputForm" type="text" id="color" name="color" required><br><br>
+                    <input class="animated animatedFadeInUp fadeInUp inputForm" type="text" id="color" name="color"
+                        required><br><br>
 
                     <label for="date">Post Date:</label>
-                    <input class="inputForm" type="date" id="currentDateInput" name="date"><br><br>
+                    <input class="animated animatedFadeInUp fadeInUp inputForm" type="date" id="currentDateInput"
+                        name="date"><br><br>
 
+                    <label for="color">Price In Dollers:</label>
+                    <input class="animated animatedFadeInUp fadeInUp inputForm" type="number" id="price" name="price"
+                        required><br><br>
                     <label>Engine Type</label> <br>
                     <input type="radio" id="electric" name="engine" value="Electric">
                     <label for="electric">Electric</label> <br>
@@ -111,7 +120,7 @@
                 </div>
                 <div class="MainImageContainer" id="contentContainer">
                     <% users.forEach(user=> { %>
-                        <div class="ImageContainer">
+                        <div class="ImageContainer animated animatedFadeInUp fadeInUp">
                             <% if (user.image && user.imageType) { %>
                                 <div class="image-box">
                                     <a href="/edit/<%= user._id %>">
