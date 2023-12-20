@@ -8,17 +8,14 @@
         content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
     <link rel="icon" href=" favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
     <meta name="author" content="Holger Koenemann">
     <meta name="generator" content="Eleventy v2.0.0">
     <meta name="HandheldFriendly" content="true">
-
     <!-- Link to the favicon.ico file -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!-- Optionally, you can also specify a larger icon for high-resolution displays -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/car1">
-
     <title>Stride HTML Template - Frontpage one</title>
     <link rel="stylesheet" href="/styles/theme.min.css">
 
@@ -59,6 +56,30 @@
                 url('./fonts/inter-v12-latin-700.woff') format('woff');
             /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
         }
+
+        .navbar-nav a {
+            color: #000;
+            /* Set your default text color */
+            text-decoration: none;
+            /* Remove underline by default */
+            transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+        }
+
+        /* Hover effect */
+        .navbar-nav a:hover {
+            color: #007bff;
+            /* Set your hover text color */
+            border-bottom: 2px solid #007bff;
+            /* Set the underline color and thickness */
+        }
+
+        .zoom-in {
+            transition: .2s;
+        }
+
+        .zoom-in:hover {
+            transform: scale(1.06);
+        }
     </style>
 
 </head>
@@ -82,22 +103,27 @@
                         <a class="nav-link" href="#footer">About Us</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">SignUp</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-
     <main>
         <div class="w-100 overflow-hidden bg-gray-100" id="top">
-
             <div class="container position-relative">
                 <div class="col-12 col-lg-8 mt-0 h-100 position-absolute top-0 end-0 bg-cover" data-aos="fade-left"
-                    style="background-image: url(img/car7.jpg); opacity: .9;">
+                    style="background-image: url(img/car3.jpg); opacity: .9;">
                 </div>
                 <div class="row">
-
                     <div class="col-lg-7 py-vh-6 position-relative" data-aos="fade-right">
-                        <h1 class="display-1 fw-bold mt-5" style="filter: drop-shadow(0px 0px 4px white);">Drive Dreams,
+                        <h1 class="display-1 fw-bold mt-5" style="filter: drop-shadow(0px 0px 1px white);">Drive Dreams,
                             Ignite
                             Passions: Your Journey Starts Here!</p>
                             <a href="#explore" class="btn btn-dark btn-xl shadow me-3 rounded-0 my-5">Explore More</a>
@@ -106,261 +132,260 @@
             </div>
         </div>
 
-        <div class="py-vh-5 w-100 overflow-hidden" id="services">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-8" data-aos="fade-down">
-                        <h2 class="display-6" id="explore">You May Like These Collections!</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="py-vh-4 bg-gray-100 w-100 overflow-hidden" id="aboutus">
-            <div class="container">
-                <div class="row d-flex justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                        <div class="row gx-5 d-flex">
-                            <div class="col-md-11">
-                                <div class="shadow ratio ratio-16x9 rounded bg-cover bp-center align-self-end"
-                                    data-aos="fade-right"
-                                    style="background-image: url(img/car1.jpg);--bs-aspect-ratio: 50%;">
-                                </div>
-                            </div>
-                            <div class="col-md-5 offset-md-1">
-                                <div class="shadow ratio ratio-1x1 rounded bg-cover mt-5 bp-center float-end"
-                                    data-aos="fade-up" style="background-image: url(img/car2.jpg);">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="col-12 shadow ratio rounded bg-cover mt-5 bp-center" data-aos="fade-left"
-                                    style="background-image: url(img/car5.jpg);--bs-aspect-ratio: 150%;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <p data-aos="fade-left" data-aos-delay="200">Leaders in Automotive Excellence!</p>
-                        <h3 class="py-5 border-top border-dark" data-aos="fade-left">Smart Solutions, Exceptional
-                            Performance
-                        </h3>
-                        <p data-aos="fade-left" data-aos-delay="200">At the forefront of automotive innovation, we
-                            proudly present
-                            our top-selling cars. Our commitment to excellence is evident in every aspect of our work.
-                            From curating
-                            captivating visuals to implementing cutting-edge technologies, we redefine the driving
-                            experience.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="position-relative overflow-hidden w-100 bg-light" id="gallery">
-            <div class="container-fluid">
-                <div class="row overflow-scroll">
-                    <div class="col-12">
-                        <div class="row vw-100 px-0 py-vh-5 d-flex align-items-center scrollx">
-                            <div class="col-md-2" data-aos="fade-up">
-                                <img src="img/webp/interior37.webp" class="rounded shadow img-fluid"
-                                    alt="nice gallery image" width="512" height="341">
-                            </div>
-                            <div class="col-md-2" data-aos="fade-up" data-aos-delay="200">
-                                <img src="img/webp/people1.webp" class="img-fluid rounded shadow"
-                                    alt="nice gallery image" width="1164" height="776">
-                            </div>
-                            <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
-                                <img src="img/webp/people2.webp" class="img-fluid rounded shadow"
-                                    alt="nice gallery image" width="844" height="1054">
-                            </div>
-                            <div class="col-md-3" data-aos="fade-up" data-aos-delay="600">
-                                <img src="img/webp/interior29.webp" class="img-fluid rounded shadow"
-                                    alt="nice gallery image" width="844" height="562">
-                            </div>
-                            <div class="col-md-2" data-aos="fade-up" data-aos-delay="800">
-                                <img src="img/webp/people23.webp" class="rounded shadow img-fluid"
-                                    alt="nice gallery image" width="512" height="341">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="position-relative overflow-hidden w-100 bg-light" id="gallery">
-            <div class="container-fluid">
-                <div class="row overflow-scroll">
-                    <div class="col-12">
-                        <div class="row vw-100 px-0 py-vh-5 d-flex align-items-center scrollx">
-                            <div class="col-md-2" data-aos="fade-up">
-                                <img src="img/webp/interior37.webp" class="rounded shadow img-fluid"
-                                    alt="nice gallery image" width="512" height="341">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="py-vh-6 bg-gray-900 text-light w-100 overflow-hidden" id="workwithus">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="row d-flex justify-content-center text-center">
-                        <div class="col-lg-8 text-center" data-aos="fade">
-                            <p class="text-secondary lead">Embark on a Journey with Us!</p>
-                            <h2 class="display-6 mb-5">Discover the excitement of collaboration. Our contact form is
-                                currently taking
-                                a breather, but we're eager to hear from you. Rest assured, your interest matters, and
-                                we're gearing up
-                                to bring you an even more delightful experience!</h2>
-                        </div>
-                        <div class="col-12">
-                            <a href="#footer" class="btn btn-warning btn-xl shadow me-3 mt-4" data-aos="fade-down">About
-                                Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-light w-100 overflow-hidden" id="testimonials">
-            <div class="container py-vh-6">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-12 col-lg-10 col-xl-8 text-center">
-                        <h2 class="display-6">What Our Customers Say</h2>
-                        <p class="lead">Discover why our customers love us! Real reviews from real people who found
-                            their perfect
-                            car with us.</p>
-                    </div>
-                    <div class="col-12 mt-4">
-                        <div class="row row-cols-1 row-cols-md-2 g-5 d-flex align-items-center">
-                            <!-- Review 1 -->
-                            <div class="col-12 col-lg-6 col-xl-4" data-aos="fade-right">
-                                <div class="card p-4 mt-3 border-0">
-                                    <div class="text-dark py-2 fs-3">
-                                        ★★★★★
-                                    </div>
-                                    <blockquote class="blockquote">
-                                        <p>"Fantastic service! They helped me find the perfect car. Highly recommended!"
-                                        </p>
-                                    </blockquote>
-                                    <div class="d-flex justify-content-between border-top pt-3">
-                                        <div>
-                                            <span class="h6 fw-5">Jane Doemunsky</span><br>
-                                            <small class="text-muted">COO, The Boo Corp.</small>
-                                        </div>
-                                        <img src="img/person1.jpg" width="48" height="48" class="rounded-circle" alt=""
-                                            data-aos="fade">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Review 2 -->
-                            <div class="col-12 col-lg-6 col-xl-4">
-                                <div class="card p-4 shadow mt-3 border-0" data-aos="fade-down">
-                                    <div class="text-dark py-2 fs-3">
-                                        ★★★★☆
-                                    </div>
-                                    <blockquote class="blockquote">
-                                        <p>"Great experience with these guys. Awesome cars, great prices!"</p>
-                                    </blockquote>
-                                    <div class="d-flex justify-content-between border-top pt-3">
-                                        <p class="card-text">
-                                            <span class="h6 fw-5">Jenny Matrix</span><br>
-                                            <small class="text-muted">Daughter of Col. John Matrix, Commando.</small>
-                                        </p>
-                                        <img src="img/person2.jpg" width="48" height="48" class="rounded-circle" alt=""
-                                            data-aos="fade">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Review 3 -->
-                            <div class="col-12 col-lg-6 col-xl-4">
-                                <div class="card p-4 mt-3 border-0" data-aos="fade-up">
-                                    <div class="text-dark py-2 fs-3">
-                                        ★★★★★
-                                    </div>
-                                    <blockquote class="blockquote">
-                                        <p>"Amazing service! They made the car-buying process so easy and stress-free."
-                                        </p>
-                                    </blockquote>
-                                    <div class="d-flex justify-content-between border-top pt-3">
-                                        <p class="card-text">
-                                            <span class="h6 fw-5">Harry Walters</span><br>
-                                            <small class="text-muted">Gangster, In Bruges</small>
-                                        </p>
-                                        <img src="/img/person3.jpg" width="48" height="48" class="rounded-circle" alt=""
-                                            data-aos="fade">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="small py-vh-3 w-100 overflow-hidden">
-            <div class="container">
+        <div class="position-relative overflow-hidden w-100 bg-gray-900" id="gallery">
+            <div class="container-fluid mt-4">
+                <h2 class="display-6 text-center mx-auto" id="explore" style="color: white;">Available Collection!</h2>
                 <div class="row">
-                    <!-- Feature 1: Delivery Service -->
-                    <div class="col-md-6 col-lg-4 border-end" data-aos="fade-up">
-                        <div class="d-flex">
-                            <div class="col-md-3 flex-fill pt-3 pe-3 pe-md-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
-                                    class="bi bi-box-seam" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
-                                </svg>
-                            </div>
-                            <div class="col-md-9 flex-fill">
-                                <h3 class="h5 my-2">Delivery Service</h3>
-                                <p>Doorstep delivery for your orders. Although we don't have products here, we guarantee
-                                    a seamless
-                                    delivery process.</p>
-                            </div>
+                    <div class="col-12">
+                        <div class="row d-flex align-items-center">
+                            <% users.forEach((user, index)=> { %>
+                                <div class="col-md-3 mb-4" data-aos="fade-up">
+                                    <% if (user.image && user.imageType) { %>
+                                        <div class="image-box mt-4">
+                                            <!-- <a href="/carder/<%= user._id %>"> -->
+                                            <a href="/cardetails/<%= user._id %>">
+                                                <img class="img-fluid rounded shadow zoom-in"
+                                                    src="data:<%= user.imageType %>;base64,<%= user.image.toString('base64') %>"
+                                                    alt="Image"">
+                                            </a>
+                                        </div>
+                                        <% } else { %>
+                                            <p>Image</p>
+                                            <% } %>
+                                </div>
+                                <% if ((index + 1) % 4===0) { %>
+                        </div>
+                        <div class=" row d-flex align-items-center">
+                                                <% } %>
+                                                    <% }); %>
+                                        </div>
+                                </div>
                         </div>
                     </div>
-                    <!-- Feature 2: Independently Checked -->
-                    <div class="col-md-6 col-lg-4 border-end" data-aos="fade-up" data-aos-delay="200">
-                        <div class="d-flex">
-                            <div class="col-md-3 flex-fill pt-3 pt-3 pe-3 pe-md-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
-                                    class="bi bi-card-checklist" viewBox="0 0 16 16">
-                                    <path
-                                        d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-                                    <path
-                                        d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
-                                </svg>
-                            </div>
-                            <div class="col-md-9 flex-fill">
-                                <h3 class="h5 my-2">Independently Checked</h3>
-                                <p>We ensure the quality of your orders, although you can't order anything here. We
-                                    offer a 100%
-                                    guarantee of excellence!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Feature 3: Online Support -->
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="d-flex">
-                            <div class="col-md-3 flex-fill pt-3 pt-3 pe-3 pe-md-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
-                                    class="bi bi-window-sidebar" viewBox="0 0 16 16">
-                                    <path
-                                        d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
-                                    <path
-                                        d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v2H1V3a1 1 0 0 1 1-1h12zM1 13V6h4v8H2a1 1 0 0 1-1-1zm5 1V6h9v7a1 1 0 0 1-1 1H6z" />
-                                </svg>
-                            </div>
-                            <div class="col-md-9 flex-fill">
-                                <h3 class="h5 my-2">Online Support</h3>
-                                <p>We offer an online support form for non-existent products. Fill it out, and we'll
-                                    send you a PDF.
-                                    Print it, then fax it to our super-secret fax number.</p>
+                </div>
+
+                <div class="py-vh-5 w-10 overflow-hidden" id="services">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center ">
+                            <div class="col-lg-6 " data-aos="fade-down">
+                                <h2 class="display-6 text-center mx-auto" id="explore">Up Coming!</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="py-vh-4 bg-gray-100 w-100 overflow-hidden" id="aboutus">
+                    <div class="container">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-lg-6">
+                                <div class="row gx-5 d-flex">
+                                    <div class="col-md-11">
+                                        <div class="shadow ratio ratio-16x9 rounded bg-cover bp-center align-self-end"
+                                            data-aos="fade-right"
+                                            style="background-image: url(img/car1.jpg);--bs-aspect-ratio: 50%;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 offset-md-1">
+                                        <div class="shadow ratio ratio-1x1 rounded bg-cover mt-5 bp-center float-end"
+                                            data-aos="fade-up" style="background-image: url(img/car2.jpg);">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-12 shadow ratio rounded bg-cover mt-5 bp-center"
+                                            data-aos="fade-left"
+                                            style="background-image: url(img/car5.jpg);--bs-aspect-ratio: 150%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <p data-aos="fade-left" data-aos-delay="200">Leaders in Automotive Excellence!</p>
+                                <h3 class="py-5 border-top border-dark" data-aos="fade-left">Smart Solutions,
+                                    Exceptional
+                                    Performance
+                                </h3>
+                                <p data-aos="fade-left" data-aos-delay="200">At the forefront of automotive innovation,
+                                    we
+                                    proudly present
+                                    our top-selling cars. Our commitment to excellence is evident in every aspect of our
+                                    work.
+                                    From curating
+                                    captivating visuals to implementing cutting-edge technologies, we redefine the
+                                    driving
+                                    experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-vh-6 bg-gray-900 text-light w-100 overflow-hidden" id="workwithus">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="row d-flex justify-content-center text-center">
+                                <div class="col-lg-8 text-center" data-aos="fade">
+                                    <p class="text-secondary lead">Embark on a Journey with Us!</p>
+                                    <h2 class="display-6 mb-5">Discover the excitement of collaboration. Our contact
+                                        form is
+                                        currently taking
+                                        a breather, but we're eager to hear from you. Rest assured, your interest
+                                        matters, and
+                                        we're gearing up
+                                        to bring you an even more delightful experience!</h2>
+                                </div>
+                                <div class="col-12">
+                                    <a href="#footer" class="btn btn-warning btn-xl shadow me-3 mt-4"
+                                        data-aos="fade-down">About
+                                        Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-light w-100 overflow-hidden" id="testimonials">
+                    <div class="container py-vh-6">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12 col-lg-10 col-xl-8 text-center">
+                                <h2 class="display-6">What Our Customers Say</h2>
+                                <p class="lead">Discover why our customers love us! Real reviews from real people who
+                                    found their perfect car with us.</p>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <div class="row row-cols-1 row-cols-md-2 g-5 d-flex align-items-center">
+                                    <!-- Review 1 -->
+                                    <div class="col-12 col-lg-6 col-xl-4" data-aos="fade-right">
+                                        <div class="card p-4 mt-3 border-0">
+                                            <div class="text-dark py-2 fs-3">
+                                                ★★★★★
+                                            </div>
+                                            <blockquote class="blockquote">
+                                                <p>"Fantastic service! They helped me find the perfect car. Highly
+                                                    recommended!"
+                                                </p>
+                                            </blockquote>
+                                            <div class="d-flex justify-content-between border-top pt-3">
+                                                <div>
+                                                    <span class="h6 fw-5">Jane Doemunsky</span><br>
+                                                    <small class="text-muted">COO, The Boo Corp.</small>
+                                                </div>
+                                                <img src="img/person1.jpg" width="48" height="48" class="rounded-circle"
+                                                    alt="" data-aos="fade">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Review 2 -->
+                                    <div class="col-12 col-lg-6 col-xl-4">
+                                        <div class="card p-4 shadow mt-3 border-0" data-aos="fade-down">
+                                            <div class="text-dark py-2 fs-3">
+                                                ★★★★☆
+                                            </div>
+                                            <blockquote class="blockquote">
+                                                <p>"Great experience with these guys. Awesome cars, great prices!"</p>
+                                            </blockquote>
+                                            <div class="d-flex justify-content-between border-top pt-3">
+                                                <p class="card-text">
+                                                    <span class="h6 fw-5">Jenny Matrix</span><br>
+                                                    <small class="text-muted">Daughter of Col. John Matrix,
+                                                        Commando.</small>
+                                                </p>
+                                                <img src="img/person2.jpg" width="48" height="48" class="rounded-circle"
+                                                    alt="" data-aos="fade">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Review 3 -->
+                                    <div class="col-12 col-lg-6 col-xl-4">
+                                        <div class="card p-4 mt-3 border-0" data-aos="fade-up">
+                                            <div class="text-dark py-2 fs-3">
+                                                ★★★★★
+                                            </div>
+                                            <blockquote class="blockquote">
+                                                <p>"Amazing service! They made the car-buying process so easy and
+                                                    stress-free."
+                                                </p>
+                                            </blockquote>
+                                            <div class="d-flex justify-content-between border-top pt-3">
+                                                <p class="card-text">
+                                                    <span class="h6 fw-5">Harry Walters</span><br>
+                                                    <small class="text-muted">Gangster, In Bruges</small>
+                                                </p>
+                                                <img src="/img/person3.jpg" width="48" height="48"
+                                                    class="rounded-circle" alt="" data-aos="fade">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="small py-vh-3 w-100 overflow-hidden">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Feature 1: Delivery Service -->
+                            <div class="col-md-6 col-lg-4 border-end" data-aos="fade-up">
+                                <div class="d-flex">
+                                    <div class="col-md-3 flex-fill pt-3 pe-3 pe-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42"
+                                            fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
+                                        </svg>
+                                    </div>
+                                    <div class="col-md-9 flex-fill">
+                                        <h3 class="h5 my-2">Delivery Service</h3>
+                                        <p>Doorstep delivery for your orders. Although we don't have products here, we
+                                            guarantee
+                                            a seamless
+                                            delivery process.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature 2: Independently Checked -->
+                            <div class="col-md-6 col-lg-4 border-end" data-aos="fade-up" data-aos-delay="200">
+                                <div class="d-flex">
+                                    <div class="col-md-3 flex-fill pt-3 pt-3 pe-3 pe-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42"
+                                            fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                            <path
+                                                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                            <path
+                                                d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="col-md-9 flex-fill">
+                                        <h3 class="h5 my-2">Independently Checked</h3>
+                                        <p>We ensure the quality of your orders, although you can't order anything here.
+                                            We
+                                            offer a 100%
+                                            guarantee of excellence!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature 3: Online Support -->
+                            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                                <div class="d-flex">
+                                    <div class="col-md-3 flex-fill pt-3 pt-3 pe-3 pe-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42"
+                                            fill="currentColor" class="bi bi-window-sidebar" viewBox="0 0 16 16">
+                                            <path
+                                                d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+                                            <path
+                                                d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v2H1V3a1 1 0 0 1 1-1h12zM1 13V6h4v8H2a1 1 0 0 1-1-1zm5 1V6h9v7a1 1 0 0 1-1 1H6z" />
+                                        </svg>
+                                    </div>
+                                    <div class="col-md-9 flex-fill">
+                                        <h3 class="h5 my-2">Online Support</h3>
+                                        <p>We offer an online support form for non-existent products. Fill it out, and
+                                            we'll
+                                            send you a PDF.
+                                            Print it, then fax it to our super-secret fax number.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </main>
 
     <footer id="footer">

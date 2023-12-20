@@ -40,8 +40,9 @@ function adminApproval(req, res, next) {
     }
 }
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', async (req, res) => {
+    const users = await AdminForm.find({})
+    res.render('index', { users: users })
 });
 app.get('/login', (req, res) => {
     res.render('login');
@@ -51,23 +52,22 @@ app.get('/signup', (req, res) => {
 });
 app.get('/admin', async (req, res, next) => {
     try {
-        // Fetch data using mongoose query with await
         const users = await AdminForm.find({});
-        // Render the EJS template with the users data
         res.render('admin', { users: users });
     } catch (error) {
         console.error("Error While fetching data from DB");
         next(error); // Pass the error to the error handling middleware
     }
 });
-
 app.get('/edit/:id', async (req, res) => {
     const entryId = req.params.id;
     const entryDetails = await AdminForm.findById(entryId);
     res.render('edit', { entryDetails });
 });
-app.get('/user', (req, res) => {
-    res.render('user');
+app.get('/cardetails/:id', async (req, res) => {
+    const entryId = req.params.id;
+    const entryDetails = await AdminForm.findById(entryId);
+    res.render('cardetails', { entryDetails });
 });
 
 
@@ -82,35 +82,27 @@ app.post("/signup", async (req, res) => {
         if (existingUser) {
             return res.send("User already exists, please choose another name");
         }
-
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(data.password, saltRounds);
         data.password = hashedPassword;
-
         const userData = await collection.insertMany(data);
         console.log(userData);
         authentication = "approvedForUser";
-
         // Store user information in the session
         req.session.user = { name: data.name, role: 'user' };
-
-        return res.redirect('/');
+        return res.redirect('login');
     } catch (error) {
         console.error("Error during signup:", error);
         res.status(500).send("Internal Server Error");
     }
 });
-
 app.post("/login", async (req, res) => {
     try {
         const user = await collection.findOne({ name: req.body.username });
-
         if (!user) {
             return res.send("Username not found!");
         }
-
         const validPassword = await bcrypt.compare(req.body.password, user.password);
-
         if (!validPassword) {
             return res.send('Invalid password');
         } else {
@@ -122,7 +114,7 @@ app.post("/login", async (req, res) => {
             }
             authentication = "approvedForUser";
             req.session.user = user; // Store user information in the session
-            return res.redirect('user');
+            return res.redirect('/');
         }
     } catch (error) {
         console.error("Error during login:", error);
@@ -155,12 +147,10 @@ app.post("/admin", upload.single('image'), async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
 app.post('/update', upload.single('image'), async (req, res) => {
     try {
         const { entryId, name, model, numberplate, maxspeed, color, date, EngineType } = req.body;
         const image = req.file;
-
         const updatedEntry = {
             name: name,
             Model: model,
@@ -170,21 +160,16 @@ app.post('/update', upload.single('image'), async (req, res) => {
             Date: date,
             EngineType: EngineType
         };
-
         if (image) {
             updatedEntry.imageType = image.mimetype;
             updatedEntry.image = image.buffer;
         }
-
         const filter = { _id: new ObjectId(entryId) };
         const update = { $set: updatedEntry };
-
         await AdminForm.updateOne(filter, update);
-
         console.log('Data updated successfully');
         res.redirect('/admin');
         // res.status(200).json({message: "Data Updated Successfully!"})
-
     } catch (updateErr) {
         console.error('Error updating data:', updateErr);
         res.status(500).send('Internal Server Error');

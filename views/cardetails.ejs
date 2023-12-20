@@ -13,7 +13,7 @@
   <meta name="generator" content="Eleventy v2.0.0">
   <meta name="HandheldFriendly" content="true">
   <title>Plain Content Sample Page</title>
-  <link rel="stylesheet" href="css/theme.min.css">
+  <link rel="stylesheet" href="/styles/theme.min.css">
 
   <style>
     /* inter-300 - latin */
@@ -52,6 +52,56 @@
         url('./fonts/inter-v12-latin-700.woff') format('woff');
       /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
+
+    /* Animation */
+
+    @keyframes fadeInUp {
+      from {
+        transform: translate3d(0, 40px, 0)
+      }
+
+      to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+      }
+    }
+
+    @-webkit-keyframes fadeInUp {
+      from {
+        transform: translate3d(0, 40px, 0)
+      }
+
+      to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+      }
+    }
+
+    .animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-fill-mode: both
+    }
+
+    .animatedFadeInUp {
+      opacity: 0
+    }
+
+    .fadeInUp {
+      opacity: 0;
+      animation-name: fadeInUp;
+      -webkit-animation-name: fadeInUp;
+    }
+
+    .pop {
+      transition: .2s ease;
+    }
+
+    .pop:hover {
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 
 </head>
@@ -72,10 +122,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#top" aria-label="Brings you to the frontpage">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#explore">Explore</a>
+            <a class="nav-link" href="/" aria-label="Brings you to the frontpage">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#footer">About Us</a>
@@ -87,102 +134,78 @@
 
 
   <main>
-    <div class="py-vh-5 w-100 overflow-hidden" id="services">
+    <div class="py-vh-5 w-100 overflow-hidden mt-5 " id="services">
       <div class="container">
         <div class="row d-flex justify-content-center">
-          <div class="col-12 col-lg-10 col-xl-8">
-            <h1 class="display-1 fw-bold border-bottom border-dark pb-4">A Simple Sample Content Page</h1>
+          <div class="col-12 col-lg-10 col-xl-8 text-center">
+            <h1 class="display-1 fw-bold border-bottom border-dark pb-4">Car Details</h1>
           </div>
           <div class="col-12">
             <figure class="py-vh-2 pt-0">
               <blockquote class="blockquote blockquote-xl">
-                <p>"Zombie sicut de grave feeding iride et serpens. Pestilentia, shaun ofthe dead scythe animated
-                  corpses ipsa screams."</p>
+                <p>"Explore the amazing features of this high-performance vehicle. From cutting-edge technology to sleek
+                  design, this car is a true masterpiece."</p>
               </blockquote>
               <figcaption class="blockquote-footer">
-                Chuck Norris in
-                <cite title="Source Title">Delta Force</cite>
+                Check out our complete collection at
+                <cite title="carx.com">CarX.com</cite>
               </figcaption>
             </figure>
           </div>
-
           <div class="col-12 col-lg-10 col-xl-8">
-            <p>
-              <img src="img/webp/people15.webp" class="img-fluid float-start p-3 pt-0 ps-0" alt="article image"
-                data-aos="fade">horribilem walking dead resurgere de crazed sepulcris creaturis, zombie sicut de
-              grave feeding iride et serpens.
-              Pestilentia, shaun ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague haec decaying
-              ambulabat mortuos. Sicut zeder apathetic malus voodoo. Aenean a dolor plan et terror soulless vulnerum
-              contagium accedunt, mortui iam vivam
-              unlife. Qui tardius moveri, brid eof reanimator sed in magna copia sint terribiles undeath legionis. Alii
-              missing oculis aliorum sicut serpere crabs nostram. Putridi braindead odores kill and infect, aere implent
-              left four dead.De carne lumbering
-              animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead
-              survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi
-              dentevil vultus comedat cerebella
-              viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh
-              eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum
-              cerebro. Nescio brains an Undead zombies.
-              Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead. Cum horribilem walking dead resurgere de crazed
-              sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun ofthe dead scythe
-              animated corpses ipsa screams.
-              Pestilentia est plague haec decaying ambulabat mortuos. Sicut zeder apathetic malus voodoo. Aenean a dolor
-              plan et terror soulless vulnerum contagium accedunt, mortui iam vivam unlife. Qui tardius moveri, brid eof
-              reanimator sed in magna copia sint
-              terribiles undeath legionis. Alii missing oculis aliorum sicut serpere crabs nostram. Putridi braindead
-              odores kill and infect, aere implent left four dead.
-
-            </p>
+            <img class="img-fluid rounded shadow zoom-in animated animatedFadeInUp fadeInUp"
+              src="data:<%= entryDetails.imageType %>;base64,<%= entryDetails.image.toString('base64') %>" alt="Image"">
+            <ul class=" mt-5">
+            <li class="animated animatedFadeInUp fadeInUp pop mt-3">Name: <%= entryDetails.name %>
+            </li>
+            <li class="animated animatedFadeInUp fadeInUp pop mt-3">Model: <%= entryDetails.Model %>
+            </li>
+            <li class="animated animatedFadeInUp fadeInUp pop mt-3">Number Plate: <%= entryDetails.NumberPlate %>
+            </li>
+            <li class="animated animatedFadeInUp fadeInUp pop mt-3">Max-speed in km/s: <%= entryDetails.MaxSpeed %>
+            </li>
+            <li class="animated animatedFadeInUp fadeInUp pop mt-3">Color: <%= entryDetails.Color %>
+            </li>
+            <li class="animated animatedFadeInUp fadeInUp pop mt-3">Posted Date: <%= entryDetails.Date %>
+            </li>
+            <li class="animated animatedFadeInUp fadeInUp pop mt-3">Engine Type: <%= entryDetails.EngineType %>
+            </li>
+            <li class="animated animatedFadeInUp fadeInUp pop mt-3">Price: <%= entryDetails.Price %>$</li>
+            </ul>
           </div>
-          <div class="col-12 py-vh-3 my-5 bg-gray-900 text-light px-5">
-            <div class="row d-flex align-items-center px-5">
-              <div class="col-12 col-lg-5 text-end d-flex justify-content-end">
-                <h2 class="border-bottom border-light pb-4 text-end me-5">De apocalypsi gorger omero undead survivor
-                  dictum mauris:</h2>
+          <div class="container mt-5">
+            <h2 class="mb-4 text-center">Want To Buy? Fill The Form</h2>
+            <form>
+              <div class="form-group mt-3">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
               </div>
-              <div class="col-12 col-lg-7">
-                <p class="border-bottom border-dark pb-5 mb-5 text-light" style="--bs-text-opacity: .5;">De carne
-                  lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger
-                  omero undead survivor dictum mauris. Hi mindless
-                  mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella
-                  viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos
-                  flesh eater, suscitat mortuos comedere carnem
-                  virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
-                  Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
-                </p>
-                <p class="border-bottom border-dark pb-5 mb-5 text-light" style="--bs-text-opacity: .5;">De carne
-                  lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger
-                  omero undead survivor dictum mauris. Hi mindless
-                  mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella
-                  viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos
-                  flesh eater, suscitat mortuos comedere carnem
-                  virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
-                  Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
-                </p>
-                <p class="text-light" style="--bs-text-opacity: .5;">
-                  Cum horribilem walking dead resurgere de crazed sepulcris creaturis, zombie sicut de grave feeding
-                  iride et serpens. Pestilentia, shaun ofthe dead scythe animated corpses ipsa screams. Pestilentia est
-                  plague haec decaying ambulabat mortuos. Sicut
-                  zeder apathetic malus voodoo. Aenean a dolor plan et terror soulless vulnerum contagium accedunt,
-                  mortui iam vivam unlife. Qui tardius moveri, brid eof reanimator sed in magna copia sint terribiles
-                  undeath legionis. Alii missing oculis aliorum sicut
-                  serpere crabs nostram. Putridi braindead odores kill and infect, aere implent left four dead.
-                </p>
+              <div class="form-group mt-3">
+                <label for="address">Address:</label>
+                <input class="form-control" id="address" rows="3" placeholder="Enter your address">
               </div>
-            </div>
+              <div class="form-group mt-3">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+              </div>
+              <div class="form-group mt-3">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">Buy</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-
   </main>
 
-  <footer id="footer">
+  <footer id=" footer">
     <div class="container small border-top">
       <div class="row py-4 d-flex justify-content-between">
 
         <!-- Box 1: Company Info -->
-        <div class="col-12 col-lg-6 border-end p-4">
+        <div class="col-12 col-lg-6 border-end p-4" id="footer">
           <p><b>CarX</b>.com</p>
           <address class="text-secondary mt-3">
             <strong>Revolution Motors, Inc.</strong><br>
@@ -237,9 +260,11 @@
     </div>
   </footer>
 
-
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/aos.js"></script>
+  <script src="script/bootstrap.bundle.min.js"></script>
+  <script src="script/aos.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     AOS.init({
       duration: 800, // values from 0 to 3000, with step 50ms
