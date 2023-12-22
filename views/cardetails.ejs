@@ -175,22 +175,22 @@
           </div>
           <div class="container mt-5">
             <h2 class="mb-4 text-center">Want To Buy? Fill The Form</h2>
-            <form>
+            <form action="/order" method="post" id="userOrder">
               <div class="form-group mt-3">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
               </div>
               <div class="form-group mt-3">
                 <label for="address">Address:</label>
-                <input class="form-control" id="address" rows="3" placeholder="Enter your address">
+                <input class="form-control" id="address" name="address" rows="3" placeholder="Enter your address">
               </div>
               <div class="form-group mt-3">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
               </div>
               <div class="form-group mt-3">
                 <label for="phone">Phone Number:</label>
-                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
               </div>
               <button type="submit" class="btn btn-primary mt-3">Buy</button>
             </form>
@@ -287,6 +287,55 @@
 
       console.log(scrollpos)
     })
+    // showing user that your order have been sent
+    document.getElementById('userOrder').addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      try {
+        const response = await fetch('/order', {
+          method: 'POST',
+          body: formData,
+        });
+        if (response.ok) {
+          const result = await response.json();
+          // Display success popup
+          alert(result.message);
+        } else {
+          const error = await response.json();
+          // Display error popup
+          alert(error.error);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        // Display generic error popup
+        alert('An error occurred');
+      }
+    });
+    document.getElementById('userOrder').addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      try {
+        const response = await fetch('/order', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          // Display success popup
+          alert(result.message);
+        } else {
+          // If response status is an error, handle it appropriately
+          const errorText = await response.text();
+          alert('Error: ' + errorText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        // Display generic error popup
+        alert('An error occurred');
+      }
+    });
+
   </script>
 
 </body>

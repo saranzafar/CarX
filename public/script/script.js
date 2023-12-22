@@ -1,16 +1,3 @@
-// -------------------------- Delete Button ------------------- 
-document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('edit-button')) {
-        // Handle edit button click for the corresponding row
-        const row = event.target.closest('tr');
-        // Implement your edit functionality here
-    } else if (event.target.classList.contains('delete-button')) {
-        // Handle delete button click for the corresponding row
-        const row = event.target.closest('tr');
-        row.remove(); // Remove the row from the table
-    }
-});
-
 // ------------ nav start ---------
 let menuicn = document.querySelector(".menuicn");
 let nav = document.querySelector(".navcontainer");
@@ -22,9 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var year = currentDate.getFullYear();
     var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
     var day = currentDate.getDate().toString().padStart(2, '0');
-
     var formattedDate = year + "-" + month + "-" + day;
-
     document.getElementById("currentDateInput").value = formattedDate;
 });
 let contentContainer = document.getElementById('contentContainer')
@@ -39,13 +24,12 @@ setTimeout(function () {
 
 
 // ------------------------ redirect to back page start ------------------------
-
 function redirectToDetails(entryId) {
     window.location.href = '/edit/' + entryId;
 }
 // ------------------------ redirect to back page end ------------------------
 
-// ------------------------ redirect to back page end ------------------------
+// ------------------------ Start pop-up for saving data nito mongodb ------------------------
 // Example using fetch API
 document.getElementById('AdminInputForm').addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -70,3 +54,25 @@ document.getElementById('AdminInputForm').addEventListener("submit", async (even
         alert('An error occurred');
     }
 });
+// ------------------------ End pop-up for saving data nito mongodb ------------------------
+
+// ------------------------ start Delete record from DB ------------------------
+function deleteItem(id) {
+    console.log("id = ",id);
+    // Assuming you're using jQuery for AJAX
+    $.ajax({
+        url: '/delete/' + id,
+        type: 'DELETE',
+        success: function (response) {
+            console.log(response);
+            alert(response)
+            location.reload()
+            // You can handle the success response as needed, like updating the UI
+        },
+        error: function (error) {
+            console.error(error);
+            // Handle the error, show a message, etc.
+        }
+    });
+}
+// ------------------------ End  Delete record from DB ------------------------

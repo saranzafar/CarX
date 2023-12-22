@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const collection = require("./config");
 const AdminForm = require("./admin");
+const order = require("./order");
 const session = require('express-session');
 const multer = require('multer');
 const { ObjectId } = require('mongodb');
@@ -172,6 +173,32 @@ app.post('/update', upload.single('image'), async (req, res) => {
         // res.status(200).json({message: "Data Updated Successfully!"})
     } catch (updateErr) {
         console.error('Error updating data:', updateErr);
+        res.status(500).send('Internal Server Error');
+    }
+});
+app.post('/order', async (req, res) => {
+    const orderDate = ({
+        Name: req.body.name,
+        Address: req.body.address,
+        Email: req.body.email,
+        PhoneNumber: req.body.phone
+    });
+    try {
+        const neworder = new order(orderDate)
+        await neworder.save();
+        res.status(200).json({ message: 'saved successfully' });
+    } catch (err) {
+        res.status(400).json({ err: err })
+    }
+})
+
+app.delete('/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        await AdminForm.findByIdAndDelete(id);
+        res.status(200).send('Delete successful');
+    } catch (error) {
+        console.error(error);
         res.status(500).send('Internal Server Error');
     }
 });

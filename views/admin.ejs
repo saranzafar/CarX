@@ -74,7 +74,8 @@
                         required><br><br>
 
                     <label for="name">Name:</label>
-                    <input class="inputForm animated animatedFadeInUp fadeInUp" type="text" id="name" name="name" required><br><br>
+                    <input class="inputForm animated animatedFadeInUp fadeInUp" type="text" id="name" name="name"
+                        required><br><br>
 
                     <label for="model">Model:</label>
                     <input class="animated animatedFadeInUp fadeInUp inputForm" type="text" id="model" name="model"
@@ -163,9 +164,9 @@
                                         </div>
 
                                         <div class="button-container">
-                                            <!-- <a href="edit"> <button class="button">Edit</button></a> -->
-                                            <button class="button"
-                                                style="background-color: rgb(204, 5, 5);">Delete</button>
+                                            <button class="button" style="background-color: rgb(204, 5, 5);"
+                                                onclick="deleteItem('<%= user._id %>'); return false;">Delete</button>
+
                                             <a href="/edit/<%= user._id %>">
                                                 <button class="button">Edit</button>
                                             </a>
@@ -179,6 +180,7 @@
 
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="/script/script.js"></script>
 </body>
 
